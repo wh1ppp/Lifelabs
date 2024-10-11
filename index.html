@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Fundraising Concert</title>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+</head>
+<style>
+*{
+	margin: 0;
+	padding: 0;
+}
+html,
+body{
+	height: 100%;
+}
+
+body{
+	font-family: 'Montserrat', sans-serif;	
+}
+
+
+.container{
+	max-width: 1080px;
+	margin: auto;
+	padding: 0 15px;
+}
+
+.logo a, 
+.logo img{
+	display: block;
+	width: 190px;
+}
+
+.main-header{
+	padding: 10px 0;
+	background: rgba(1,24,42,.6);
+	position: relative;
+	z-index: 1000;
+}
+
+.main-menu li{
+	list-style: none;
+}
+
+.main-menu > li{
+	padding: 0 5px;
+}
+
+.main-menu a{
+	font-size: 90%;
+	text-decoration: none;
+	color: #fff;
+	text-transform: uppercase;
+	display: block;
+	padding: 9px 18px;
+}
+
+.dropdown{
+	padding-left: 8px;
+}
+
+/*Caret*/
+.caret{
+	position: relative;
+}
+
+.caret:after{
+	content: '';
+	width: 0;
+	height: 0;
+	position: absolute;
+	top: 40%;
+	left: 4px;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 5px solid #f7f7f7;
+}
+
+/*Three Bars*/
+.toggler{
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  outline: none;
+  width: 35px;
+  height: 35px;
+  padding: 0;
+  position: absolute;
+  right: 15px;
+  top: 28px;  
+  border-radius: 25px;
+}
+
+.bars{
+  display: block;
+  width: 100%;
+  height: 3px;
+  position: relative;
+  font-smoothing: antialiased;
+  border-radius: 25px;
+}
+
+.middle{
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #236efb;  
+  border-radius: 25px;
+}
+
+.bars:before,
+.bars:after{
+  content: '';
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: #236efb;
+  position: absolute;
+  font-smoothing: antialiased;
+  border-radius: 25px;
+  transition: .3s;
+}
+.bars:before{  
+  top: -12px;   
+  transform-origin: 0 0; 
+}
+.bars:after{
+  bottom: -12px;  
+  transform-origin: 0 100%;
+}
+
+.stylebars .middle{
+  opacity: 0;
+}
+
+.stylebars .bars:before{
+  transform: rotate(45deg) scaleX(1.25) translateY(-4px);
+}
+.stylebars .bars:after{
+  transform: rotate(-45deg) scaleX(1.25) translateY(4px);
+}
+
+/*Hero*/
+.hero{
+	position: absolute;
+	top: 0;
+        background-size: 100%;
+	width: 100%;
+	height: 200%;
+	color: #fff;
+        background-repeat: no-repeat;
+	background: url("Screenshot (135).png") 
+}
+
+.v-box{		
+	display: table-cell;
+	width: 100%;
+	height: inherit;
+	text-align: center;
+	vertical-align: middle;
+}
+.hero h2{
+	text-transform: uppercase;
+	font-weight: 100;
+	font-size: 200%;
+	margin-bottom: 15px;
+}
+@media screen and (min-width: 768px){	
+	.main-menu,
+	.flex-col{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.main-menu > li,
+	.main-menu > li li{
+		position: relative;
+	}
+
+	.main-menu > li > ul{
+		position: absolute;
+		top: -99999px;
+		padding: 0;
+	}
+	
+	.main-menu > li > ul > li > ul{
+		position: absolute;
+		top: -99999px;
+		padding: 0;
+	}
+
+	.main-menu > li:hover > ul{
+		top: 100%;
+	}
+	
+	.main-menu > li > ul > li:hover > ul{
+		top: 0;
+		left: 100%;
+	}
+
+	.main-menu > li:hover a{
+		background: rgba(1,24,42,.8);
+	}
+
+	.main-menu > li  li:hover a{
+		background: rgba(44,44,84,.6);
+	}
+
+	.main-menu > li li  li:hover a{
+		background: rgba(14,24,42,.9);
+	}
+
+	.dropdown{
+		white-space: nowrap;
+		min-width: 180px;
+		background: rgba(1,24,42,.5);
+	}
+
+	/*Menu toggle*/
+	.toggler{
+    	display: none;
+  	}
+}
+
+@media screen and (max-width: 767px) {
+	/*Menu toggle*/
+  .main-menu{
+    display: none;
+  }
+  .nav-expand{
+    display: block;
+  }
+ 
+}
+</style>
+<body>
+	<header class="main-header">
+		<div class="container">
+			<div class="flex-col">
+				<nav class="navbar">
+					<!-- nav-icons -->
+					<button class="toggler">
+						<span class="bars"><span class="middle"></span></span>
+					</button>
+
+					<!-- Main menu -->
+					<ul class="main-menu">
+						<li><a href="index.html">home</a></li>
+						<li><a href="#">Concert procedures <span class="caret"></span></a>
+							<ul class="dropdown">
+								<li><a href="pre.html">PRE-CONCERT PROCEDURES</a></li>
+								<li><a href="pro.html">CONCERT PROPER</a></li>
+								<li><a href="pos.html">POST-CONCERT PROCEDURES</a></li>
+								
+									<ul class="dropdown">
+										
+									</ul>
+								</li>
+							</ul>
+						</li>						
+						<li><a href="Pv.html">lifelabs draft</a></li>
+						<li><a href="abt.html">about</a></li>
+						<li><a href="sa.html">scenario analysis</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</header>
+
+
+	<!-- HERO/SLIDER -->
+	<div class="hero">
+		<div class="v-box">
+			<div class="vam">
+				<h2 style="font-size: 60px; width: 60%; padding-top: 300px; position: absolute;
+    top: 150px; 
+    left: 50%;transform: translateX(-50%);
+    margin: 0;
+    padding: 5px 10px;">Fundraising Concert For Sitio Bebe</h2>
+				<p style="position: absolute;
+    top: 360px; 
+    left: 50%;transform: translateX(-50%);
+    margin: 0;
+    padding: 5px 10px; font-size: 30px; width: 70%;">We are Group 3 of A07-9-1. We are holding a fundraising concert
+ in order to help out the residents of Sitio Bebe!<br><br></p>
+
+               
+           <img src="aespa.jpg">
+           <p style="position: absolute;
+    top: 1120px; 
+    font-size: 30px;
+    left: 18%;
+    transform: translateX(-50%);
+    margin: 0;
+    padding: 5px 10px;"> AESPA </p>
+			</div>
+		</div>
+	</div>
+	
+<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="mycustom.js"></script>
+</body>
+<style>
+  img {
+    width: 1000px;
+    height 700px;
+    position: absolute;
+    top: 530px; 
+    left: 50%;transform: translateX(-50%);
+    border-style: solid;
+    border-color: white;
+      }
+</style>
+</html>
